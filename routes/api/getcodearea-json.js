@@ -2,7 +2,7 @@ const router = require('express').Router();
 const axios = require('axios');
 
 const data = axios.create({
-    baseURL: 'http://klikmbc.co.id/json'
+    baseURL: 'http://web.klikmbc.biz/json'
 });
 
 router.get('/', (req, res) => {
