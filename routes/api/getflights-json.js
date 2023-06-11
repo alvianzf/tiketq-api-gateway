@@ -8,8 +8,15 @@ const data = axios.create({
 router.get('/', function(req, res) {
     const { username, password, to, from, date } = req.query;
 
+    let missingParameter = "missing parameter: "
+    if (!username) missingParameter.join(" username")
+    if (!password) missingParameter.join(" password")
+    if (!to) missingParameter.join(" to")
+    if (!from) missingParameter.join(" from")
+    if (!date) missingParameter.join(" date")
+
     if (!username || !password || !to || !from || !date) {
-        return res.status(400).send({ error: 'Missing parameters' });
+        return res.status(400).send({ missingParameter, error });
     }
 
     axios
