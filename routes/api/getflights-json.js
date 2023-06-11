@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
     if (!date) missingParameter + " date"
 
     if (!username || !password || !to || !from || !date) {
-        return res.status(400).send({ missingParameter, error });
+        return res.status(400).send({ error: missingParameter});
     }
 
     axios
