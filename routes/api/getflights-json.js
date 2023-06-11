@@ -9,11 +9,11 @@ router.get('/', function(req, res) {
     const { username, password, to, from, date } = req.query;
 
     let missingParameter = "missing parameter: "
-    if (!username) missingParameter + " username"
-    if (!password) missingParameter + " password"
-    if (!to) missingParameter + " to"
-    if (!from) missingParameter + " from"
-    if (!date) missingParameter + " date"
+    if (!username) missingParameter += " username"
+    if (!password) missingParameter += " password"
+    if (!to) missingParameter += " to"
+    if (!from) missingParameter += " from"
+    if (!date) missingParameter += " date"
 
     if (!username || !password || !to || !from || !date) {
         return res.status(400).send({ error: missingParameter});
