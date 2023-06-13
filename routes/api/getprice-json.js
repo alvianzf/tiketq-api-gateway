@@ -5,7 +5,7 @@ const data = axios.create({
     baseURL: 'https://web.klikmbc.biz/json'
 });
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
     const { username, password, to, from, date, adult, infant, child } = req.query;
 
     let missingParameter = "missing parameter: "
