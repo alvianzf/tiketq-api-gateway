@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
     }
 
     axios
-        .post(`getprice-json`, {
+        .post(`getprice-json`, {params: {
             username,
             password,
             to,
@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
             adult: adult ?? 0,
             child: child ?? 0,
             infant: infant ?? 0
-        })
+        }})
         .then(response => {
             res.send(response.data);
         })
