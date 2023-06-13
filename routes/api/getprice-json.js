@@ -6,7 +6,7 @@ const data = axios.create({
 });
 
 router.get('/', function(req, res) {
-    const { username, password, to, from, date } = req.query;
+    const { username, password, to, from, date, adult, infant, child } = req.query;
 
     let missingParameter = "missing parameter: "
     if (!username) missingParameter += " username;"
