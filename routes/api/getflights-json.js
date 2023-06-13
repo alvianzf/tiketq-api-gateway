@@ -31,7 +31,8 @@ router.get('/', function(req, res) {
             res.send(response.data);
         })
         .catch(error => {
-            res.status(500).send({code: error.code, status: error.status});
+            const {code, status} = error
+            res.status(500).send({code, status});
         });
 });
 
