@@ -20,7 +20,7 @@ router.post('/', function(req, res) {
     }
 
     axios
-        .post(`getprice-json`, {
+        .post(`/getprice-json`, {
             username,
             password,
             to,
