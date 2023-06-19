@@ -1,0 +1,26 @@
+name: Deploy to DigitalOcean
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install rsync
+        run: sudo apt-get install -y rsync
+
+      - name: instal sshpass
+        run: sudp apt-get install -y sshpass
+
+      - name: Deploy to DigitalOcean
+        run: |
+            sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh root@143.198.208.181"
+            cd tiketq-api-gateway
+            git pull
+            pm2 restart 0

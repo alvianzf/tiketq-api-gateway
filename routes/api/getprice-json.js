@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
         })
         .catch(error => {
             const {code, status} = error
-            res.status(500).send({error});
+            res.status(500).send({code, status});
         });
 });
 
