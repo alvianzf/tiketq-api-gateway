@@ -16,7 +16,7 @@ jobs:
         run: sudo apt-get install -y rsync
 
       - name: instal sshpass
-        run: sudp apt-get install -y sshpass
+        run: sud apt-get install -y sshpass
 
       - name: Deploy to DigitalOcean
         run: |
