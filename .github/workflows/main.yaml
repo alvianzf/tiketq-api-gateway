@@ -20,7 +20,4 @@ jobs:
 
       - name: Deploy to DigitalOcean
         run: |
-            sshpass -p ${{ secrets.SSH_PASSWORD }} ssh -t root@143.198.208.181
-            cd tiketq-api-gateway
-            git pull
-            pm2 restart 0
+            sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh root@<your-droplet-ip> "cd tiketq-api-gateway && git pull && pm2 restart 0"
