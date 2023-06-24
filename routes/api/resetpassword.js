@@ -5,6 +5,10 @@ const data = axios.create({
     baseURL: 'https://web.klikmbc.biz/json'
 });
 
+router.get('/', function(req, res) {
+    res.send('No workable get methods');
+});
+
 router.post('/', function(req, res) {
     const {username, email, phone, agencode, newpassword} = req.query;
 
@@ -24,6 +28,6 @@ router.post('/', function(req, res) {
 
             res.status(500).send({code, status});
         })
-})
+});
 
 module.exports = router;
