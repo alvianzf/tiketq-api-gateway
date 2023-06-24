@@ -13,7 +13,7 @@ router.post('/', function(req, res) {
     const {username, email, phone, agencode, newpassword} = req.query;
 
     data
-        .post('resetpassword', {
+        .post('/resetpassword', {
             username,
             email,
             phone,
