@@ -14,9 +14,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(cors({
-    origin: '*', // Allow requests from any origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow specified HTTP methods
-    allowedHeaders: 'Content-Type,Authorization', // Allow specified headers
+  origin: '*'
 }));
 
 app.use(logger('dev'));
