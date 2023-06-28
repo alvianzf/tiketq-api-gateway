@@ -20,11 +20,11 @@ router.post('/', function(req, res) {
     }
 
     data
-        .post(`searchflights-json`, {
+        .post(`/searchflights-json`, {
             username,
             password,
-            to,
             from,
+            to,
             date
         })
         .then(response => {
