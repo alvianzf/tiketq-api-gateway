@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    const {username, email, phone, agencode, newpassword} = req.query;
+    const {username, email, phone, agencode, newpassword} = req.body;
 
     data
         .post('/resetpassword', {
