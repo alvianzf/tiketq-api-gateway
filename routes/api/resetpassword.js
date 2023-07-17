@@ -12,14 +12,19 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
     const {username, email, phone, agencode, newpassword} = req.body;
 
-    data
-        .post('/resetpassword', {
-            username,
-            email,
-            phone,
-            agencode,
-            newpassword
-        })
+    const bodyFormData = new FormData();
+    bodyFormData.append('username', username);
+    bodyFormData.append('email', email);
+    bodyFormData.append('phone', phone);
+    bodyFormData.append('agencode', agencode);
+    bodyFormData.append('newpassword', newpassword);
+
+    data({
+        method:'POST',
+        url: '/resetpassword',
+        data: bodyFormData,
+        headers: { "Content-Type": "multipart/form-data" },
+    })
         .then((response) => {
             res.send(response.data)
         })
