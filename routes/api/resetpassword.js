@@ -22,20 +22,20 @@ router.post('/', function(req, res) {
 
     return res.send(req.body);
 
-    data({
-        method:'POST',
-        url: '/resetpassword',
-        data: bodyFormData,
-        headers: { "Content-Type": "multipart/form-data" },
-    })
-        .then((response) => {
-            res.send(response.data)
-        })
-        .catch(err => {
-            const {code, status} = err;
+    // data({
+    //     method:'POST',
+    //     url: '/resetpassword',
+    //     data: bodyFormData,
+    //     headers: { "Content-Type": "multipart/form-data" },
+    // })
+    //     .then((response) => {
+    //         res.send(response.data)
+    //     })
+    //     .catch(err => {
+    //         const {code, status} = err;
 
-            res.status(500).send({code, status});
-        })
+    //         res.status(500).send({code, status});
+    //     })
 });
 
 module.exports = router;
