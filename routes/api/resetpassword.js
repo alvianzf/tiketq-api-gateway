@@ -20,6 +20,8 @@ router.post('/', function(req, res) {
     bodyFormData.append('agencode', agencode);
     bodyFormData.append('newpassword', newpassword);
 
+    return res.send(req.body);
+
     data({
         method:'POST',
         url: '/resetpassword',
