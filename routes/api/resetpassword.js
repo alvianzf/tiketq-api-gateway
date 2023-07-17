@@ -13,12 +13,12 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
     const {username, email, phone, agencode, newpassword} = req.body;
 
-    const bodyFormData = new FormData();
-    bodyFormData.append('username', username);
-    bodyFormData.append('email', email);
-    bodyFormData.append('phone', phone);
-    bodyFormData.append('agencode', agencode);
-    bodyFormData.append('newpassword', newpassword);
+    // const bodyFormData = new FormData();
+    // bodyFormData.append('username', username);
+    // bodyFormData.append('email', email);
+    // bodyFormData.append('phone', phone);
+    // bodyFormData.append('agencode', agencode);
+    // bodyFormData.append('newpassword', newpassword);
 
     return res.send(req.body);
 
