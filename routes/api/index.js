@@ -8,6 +8,8 @@ router.use('/postbooking-json', require('./postbooking-json'));
 router.use('/getissued-json', require('./getissued-json'));
 
 router.get('/', function(req, res) {
+
+    console.log('username: ' +process.env.USER_NAME + process.env.PASS_WORD);
     res.status(200).json({error: 'read the documentation, you piece of shit!'})
 })
 

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 const FormData = require('form-data');
+const assign = require('../helpers/formdata');
 
 const data = axios.create({
     baseURL: 'https://web.klikmbc.biz/json'
@@ -12,14 +13,8 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
     const {username, email, phone, agencode, newpassword} = req.body;
-    console.log(req.body.username)
 
-    const bodyFormData = new FormData();
-    bodyFormData.append('username', username);
-    bodyFormData.append('email', email);
-    bodyFormData.append('phone', phone);
-    bodyFormData.append('agencode', agencode);
-    bodyFormData.append('newpassword', newpassword);
+   const bodyFormData = assign(email, phone, agencode, newpassword);
 
     data({
         method:'POST',
