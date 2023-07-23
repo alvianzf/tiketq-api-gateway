@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const axios = require('axios');
+const assign = require('../helpers/formdata');
 
 
 const data = axios.create({
@@ -20,12 +21,10 @@ router.post('/getissued-json', (req,res) => {
         })
     };
 
+    const formData = assign(kodebooking)
+
     data
-        .post('/getissued-json', {
-            usernamee,
-            password,
-            kodebooking
-        })
+        .post('/getissued-json', formData)
         .then(response => {
             res.status(200).send(response.data);
         })

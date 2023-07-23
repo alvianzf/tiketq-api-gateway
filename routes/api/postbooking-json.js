@@ -1,4 +1,5 @@
 const axios = require('axios');
+const assign = require('../helpers/formdata');
 const router = require('express').Router()
 
 const data = axios.create({
@@ -8,25 +9,9 @@ const data = axios.create({
 router.post('/', (req, res) => {
     const {username, password, flight, from, to, date, adult, child, infant, email, phone, passengername, dateofbirth, baggagevolume, passportnumber, passportexpired} = req.query;
 
+    const formData = assign(flight, from, to, date, adult, child, infant,email, phone, passengername, dateofbirth, baggagevolume, passportnumber, passportexpired);
     data.
-        post('/postbooking-json', {
-            username,
-            password, 
-            flight, 
-            from, 
-            to, 
-            date, 
-            adult: adult ?? 0, 
-            child: child ?? 0, 
-            infant: infant ?? 0, 
-            email, 
-            phone, 
-            passengername, 
-            dateofbirth,
-            baggagevolume,
-            passportnumber: passportnumber ?? null,
-            passportexpired: passportexpired ?? null
-        })
+        post('/postbooking-json', formData)
         .then(response => {
             res.status(200).send(response.data);
         })

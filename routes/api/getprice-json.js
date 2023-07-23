@@ -1,35 +1,28 @@
 const router = require('express').Router();
 const axios = require('axios');
+const assign = require('../helpers/formdata');
 
 const data = axios.create({
     baseURL: 'https://web.klikmbc.biz/json'
 });
 
 router.post('/', function(req, res) {
-    const { username, password, to, from, date, adult, infant, child } = req.query;
+    const { to, from, date, adult, infant, child } = req.query;
 
     let missingParameter = "missing parameter: "
-    if (!username) missingParameter += " username;"
-    if (!password) missingParameter += " password;"
     if (!to) missingParameter += " to;"
     if (!from) missingParameter += " from;"
     if (!date) missingParameter += " date;"
 
-    if (!username || !password || !to || !from || !date) {
+    if ( !to || !from || !date) {
         return res.status(400).send({ error: missingParameter});
     }
 
+    const formData = assign({to, from, date, adult, infant, child});
+
+
     data
-        .post(`/getprice-json`, {
-            username,
-            password,
-            to,
-            from,
-            date,
-            adult: adult ?? 0,
-            child: child ?? 0,
-            infant: infant ?? 0
-        })
+        .post(`/getprice-json`,formData)
         .then(response => {
             res.send(response.data);
         })
