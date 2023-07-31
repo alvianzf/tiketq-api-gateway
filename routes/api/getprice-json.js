@@ -7,19 +7,9 @@ const data = axios.create({
 });
 
 router.post('/', function(req, res) {
-    const { to, from, date, adult, infant, child } = req.query;
+    const { to, from, date, adult, infant, child, flight } = req.body;
 
-    let missingParameter = "missing parameter: "
-    if (!to) missingParameter += " to;"
-    if (!from) missingParameter += " from;"
-    if (!date) missingParameter += " date;"
-
-    if ( !to || !from || !date) {
-        return res.status(400).send({ error: missingParameter});
-    }
-
-    const formData = assign({to, from, date, adult, infant, child});
-
+    const formData = assign({to, from, date, adult, infant, child, flight});
 
     data
         .post(`/getprice-json`,formData)

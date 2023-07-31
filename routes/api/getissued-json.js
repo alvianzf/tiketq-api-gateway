@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/getissued-json', (req,res) => {
-    const {username, password, kodebooking} = req.query;
+    const {kodebooking} = req.body;
 
     if(!kodebooking){
         return res.status(403).json({

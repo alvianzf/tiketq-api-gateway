@@ -9,8 +9,6 @@ const data = axios.create({
 router.post('/', function(req, res) {
     const { to, from, date } = req.body;
 
-    console.table(req.body)
-
     const formData = assign({to, from, date});
 
     data
