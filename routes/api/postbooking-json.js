@@ -6,20 +6,20 @@ const data = axios.create({
     baseURL: 'https://web.klikmbc.biz/json'
 });
 
-router.post('/', (req, res) => {
-    const {username, password, flight, from, to, date, adult, child, infant, email, phone, passengername, dateofbirth, baggagevolume, passportnumber, passportexpired} = req.query;
+router.post('/', function(req, res) {
+    const { to, from, date, adult, infant, child, flight, passengername, email } = req.body;
 
-    const formData = assign(flight, from, to, date, adult, child, infant,email, phone, passengername, dateofbirth, baggagevolume, passportnumber, passportexpired);
-    data.
-        post('/postbooking-json', formData)
+    const formData = assign({to, from, date, adult, infant, child, flight, passengername, email});
+
+    data
+        .post(`/postbooking-json`,formData)
         .then(response => {
-            res.status(200).send(response.data);
+            res.send(response.data);
         })
-        .catch(err => {
-            const {status, code} = err;
-            res.status(500).send({status, code});
-        })
-
+        .catch(error => {
+            const {code, status} = error
+            res.status(500).send({code, status});
+        });
 });
 
 router.get('/', (req, res) => {
