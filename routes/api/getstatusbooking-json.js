@@ -21,7 +21,7 @@ router.post('/', (req,res) => {
         })
     };
 
-    const formData = assign(kodebooking)
+    const formData = assign({kodebooking})
 
     data
         .post('/getstatusbooking-json', formData)
