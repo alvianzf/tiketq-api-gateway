@@ -6,6 +6,7 @@ router.use('/getprice-json', require('./getprice-json'));
 router.use('/resetpassword', require('./resetpassword'));
 router.use('/postbooking-json', require('./postbooking-json'));
 router.use('/getissued-json', require('./getissued-json'));
+router.use('/getstatusbooking-json', require('./getstatusbooking-json'));
 
 router.get('/', function(req, res) {
 
