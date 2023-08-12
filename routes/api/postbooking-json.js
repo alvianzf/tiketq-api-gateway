@@ -7,9 +7,9 @@ const data = axios.create({
 });
 
 router.post('/', function(req, res) {
-    const { to, from, date, adult, infant, child, flight, passengername, email } = req.body;
+    const { to, from, date, adult, infant, child, flight, passengername, email, phone } = req.body;
 
-    const formData = assign({to, from, date, adult, infant, child, flight, passengername, email});
+    const formData = assign({to, from, date, adult, infant, child, flight, passengername, email, phone});
 
     data
         .post(`/postbooking-json`,formData)
