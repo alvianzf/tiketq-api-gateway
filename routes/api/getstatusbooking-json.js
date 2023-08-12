@@ -9,10 +9,10 @@ const data = axios.create({
 
 
 router.get('/', (req, res) => {
-    res.send('No applicable GET method for getissued endpoint');
+    res.send('No applicable GET method for get status booking endpoint');
 });
 
-router.post('/getissued-json', (req,res) => {
+router.post('/', (req,res) => {
     const {kodebooking} = req.body;
 
     if(!kodebooking){
