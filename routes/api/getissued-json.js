@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.send('No applicable GET method for getissued endpoint');
 });
 
-router.post('/getissued-json', (req,res) => {
+router.post('/', (req,res) => {
     const {kodebooking} = req.body;
 
     if(!kodebooking){
