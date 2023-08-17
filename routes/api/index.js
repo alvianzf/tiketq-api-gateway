@@ -7,7 +7,7 @@ router.use('/resetpassword', require('./resetpassword'));
 router.use('/postbooking-json', require('./postbooking-json'));
 router.use('/getissued-json', require('./getissued-json'));
 router.use('/getstatusbooking-json', require('./getstatusbooking-json'));
-// router.use('/getetiket-json', require('./getetiket-json'));
+router.use('/getetiket-json', require('./getetiket-json'));
 
 router.get('/', function(req, res) {
 
