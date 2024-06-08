@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 router.use('/getflights-json', require('./getflights-json'));
 router.use('/getcodearea-json', require('./getcodearea-json'));
+router.use('/getcodeflights-json', require('./getcodeflights-json'));
 router.use('/getprice-json', require('./getprice-json'));
 router.use('/resetpassword', require('./resetpassword'));
 router.use('/postbooking-json', require('./postbooking-json'));
