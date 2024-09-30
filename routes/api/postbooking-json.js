@@ -3,7 +3,7 @@ const assign = require('../helpers/formdata');
 const router = require('express').Router()
 
 const data = axios.create({
-    baseURL: 'https://web.klikmbc.biz/json'
+    baseURL: process.env.API_BASE_URL
 });
 
 router.post('/', function(req, res) {
