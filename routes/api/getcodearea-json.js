@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 const assign = require('../helpers/formdata');
+const { sortDataByName } = require('../helpers/sorting');
 
 const API_BASE_URL = process.env.API_BASE_URL;
 
@@ -15,7 +16,9 @@ async function getCodeArea(req, res) {
         const response = await apiClient.post('getcodearea-json', formData, {
             headers: formData.getHeaders()
         });
-        res.json(response.data);
+        const sortedData = sortDataByName(response.data);
+        // res.json(response.data);
+        res.json(sortedData);
     } catch (error) {
         console.error('Error fetching code area:', error);
         res.status(500).json({ error: 'Internal Server Error' });
