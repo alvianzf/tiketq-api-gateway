@@ -1,0 +1,8 @@
+
+const sortDataByName = (data) => {
+    return data.sort((a, b) => a.name.localeCompare(b.name));
+};
+
+module.exports = {
+    sortDataByName
+};
